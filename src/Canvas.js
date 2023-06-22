@@ -4,7 +4,6 @@ import CanvasOverlay from "./CanvasOverlay";
 
 const Canvas = (props) => {
   const canvasRef = useRef(null);
-  const pathsRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -27,7 +26,7 @@ const Canvas = (props) => {
       // Fills the background with a gradient
       fillColor: {
         gradient: {
-          stops: ["#223380", "#1C076C"],
+          stops: ["#223380", "#000000"],
         },
         origin: gradientStart,
         destination: gradientEnd,
@@ -39,7 +38,7 @@ const Canvas = (props) => {
     const pathGen = [
       {
         colorStart: "#375894",
-        colorEnd: "#23287C",
+        colorEnd: "#202070",
         opacity: 0.7,
         points: 3,
         height: 1, // 1 is the middle of the screen, 0 is the bottom
@@ -85,7 +84,7 @@ const Canvas = (props) => {
       width = viewSize.width;
       height = viewSize.height;
 
-      pathGen.map((path, index) => {
+      pathGen.forEach((path, index) => {
         let p = new paper.Path();
         let anchorLeft = 1 + (1 - path.anchorLeft);
         let anchorRight = 1 + (1 - path.anchorRight);
@@ -141,6 +140,7 @@ const Canvas = (props) => {
             center.y * (1 + (1 - pathGen[index].height));
           path.segments[i].point.y = yPos;
         }
+        return null; // added return statement
       });
     }
 
@@ -160,6 +160,7 @@ const Canvas = (props) => {
       paper.view.off("frame", onFrame);
       paths.map((path) => {
         path.remove();
+        return null; // added return statement
       });
       /*  paper.view.off("resize", onResize); */
     };
