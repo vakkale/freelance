@@ -1,0 +1,128 @@
+nav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  flex-direction: row-reverse;
+
+  .nav-item {
+    //left and right and top padding of 1rem
+    padding: 1.5rem;
+  }
+
+  div > a {
+    color: white;
+    text-decoration: none;
+    font-size: 23px;
+    font-family: "Akkurat Pro";
+  }
+}
+
+.canvas-overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  // center everything
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 10%;
+  box-sizing: border-box;
+  flex: 100%;
+  flex-wrap: wrap;
+
+  .intro-text {
+    width: 568px;
+    height: 236px;
+
+    .text-section {
+      span:first-child {
+        color: white;
+        font-size: 36px;
+        font-family: "Akkurat Pro";
+        font-weight: 400;
+        line-height: 54px;
+        word-wrap: break-word;
+      }
+
+      span:last-child {
+        color: white;
+        font-size: 27px;
+        font-family: "Akkurat Pro";
+        font-weight: 400;
+        line-height: 45px;
+        word-wrap: break-word;
+      }
+    }
+
+    .button-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 10px;
+      button,
+      button > a {
+        all: unset;
+        font-family: "Akkurat Pro";
+        cursor: pointer;
+        color: white;
+        text-decoration: none;
+        font-size: 25px;
+        padding: 0.7rem;
+        border-radius: 1.5rem;
+      }
+      .button-orange {
+        background: white;
+        border-color: #ffffff;
+        transition: all 0.2s ease-in-out;
+
+        a {
+          color: black;
+        }
+
+        &:hover {
+          background: orange;
+          border-color: #ffb14a;
+
+          a {
+            color: white; /* Change the text color on hover to ensure visibility */
+          }
+        }
+      }
+
+      .button-clear {
+        //no background color
+        background-color: transparent;
+        transition: all 0.2s ease-in-out;
+        border: 1px solid white;
+
+        &:hover {
+          background: rgb(0, 0, 0);
+          border-color: black;
+
+          a {
+            color: white; /* Change the text color on hover to ensure visibility */
+          }
+        }
+      }
+    }
+  }
+
+  .portrait {
+    width: 30rem;
+    height: 38rem;
+    flex-shrink: 0;
+    pointer-events: none;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+  }
+}

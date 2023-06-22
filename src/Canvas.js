@@ -1,52 +1,10 @@
 import React, { useRef, useEffect } from "react";
 import paper from "paper";
+import CanvasOverlay from "./CanvasOverlay";
 
 const Canvas = (props) => {
   const canvasRef = useRef(null);
   const pathsRef = useRef(null);
-
-  // array of paths
-  const paths = [];
-
-  // values for each path
-  const pathGen = [
-    {
-      colorStart: "#375894",
-      colorEnd: "#23287C",
-      opacity: 0.7,
-      points: 3,
-      height: 1, // 1 is the middle of the screen, 0 is the bottom
-      anchorLeft: 1, //height of the left anchor point
-      anchorRight: 0.8, //height of the right anchor point
-    },
-    {
-      colorStart: "#2A4F85",
-      colorEnd: "#1E2672",
-      opacity: 0.7,
-      points: 3,
-      height: 0.8,
-      anchorLeft: 0.8,
-      anchorRight: 0.7,
-    },
-    {
-      colorStart: "#25558D",
-      colorEnd: "#202C81",
-      opacity: 0.7,
-      points: 3,
-      height: 0.6,
-      anchorLeft: 0.7,
-      anchorRight: 0.6,
-    },
-    {
-      colorStart: "#1F2758",
-      colorEnd: "#1F1F47",
-      opacity: 0.7,
-      points: 3,
-      height: 0.4,
-      anchorLeft: 0.6,
-      anchorRight: 0.5,
-    },
-  ];
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -74,34 +32,68 @@ const Canvas = (props) => {
         origin: gradientStart,
         destination: gradientEnd,
       },
-    });
+    }); // array of paths
+    const paths = [];
+
+    // values for each path
+    const pathGen = [
+      {
+        colorStart: "#375894",
+        colorEnd: "#23287C",
+        opacity: 0.7,
+        points: 3,
+        height: 1, // 1 is the middle of the screen, 0 is the bottom
+        anchorLeft: 1, //height of the left anchor point
+        anchorRight: 0.8, //height of the right anchor point
+      },
+      {
+        colorStart: "#2A4F85",
+        colorEnd: "#1E2672",
+        opacity: 0.7,
+        points: 3,
+        height: 0.8,
+        anchorLeft: 0.8,
+        anchorRight: 0.7,
+      },
+      {
+        colorStart: "#25558D",
+        colorEnd: "#202C81",
+        opacity: 0.7,
+        points: 3,
+        height: 0.6,
+        anchorLeft: 0.7,
+        anchorRight: 0.6,
+      },
+      {
+        colorStart: "#1F2758",
+        colorEnd: "#1F1F47",
+        opacity: 0.7,
+        points: 3,
+        height: 0.4,
+        anchorLeft: 0.6,
+        anchorRight: 0.5,
+      },
+    ];
 
     // Path 1. The tallest one
-    var center, width;
+    var center, width, height;
     var pathHeight = 30;
     initializePath();
 
     function initializePath() {
-      // remove all paths
-      paths.map((path) => {
-        path.remove();
-      });
-
       center = view.center;
       width = viewSize.width;
+      height = viewSize.height;
 
       pathGen.map((path, index) => {
         let p = new paper.Path();
         let anchorLeft = 1 + (1 - path.anchorLeft);
         let anchorRight = 1 + (1 - path.anchorRight);
 
-        let bottomLeft = new paper.Point(0, viewSize.height);
-        let topLeft = new paper.Point(0, (viewSize.height / 2) * anchorLeft);
-        let topRight = new paper.Point(
-          viewSize.width,
-          (viewSize.height / 2) * anchorRight
-        );
-        let bottomRight = new paper.Point(viewSize.width, viewSize.height);
+        let bottomLeft = new paper.Point(0, height);
+        let topLeft = new paper.Point(0, (height / 2) * anchorLeft);
+        let topRight = new paper.Point(width, (height / 2) * anchorRight);
+        let bottomRight = new paper.Point(width, height);
 
         p.segments = [];
         p.add(bottomLeft, topLeft);
@@ -143,7 +135,7 @@ const Canvas = (props) => {
         pathHeight -= (center.y * 0.3 + pathHeight) / 10;
         for (var i = 2; i < pathGen[index].points + 1; i++) {
           var sinSeed = event.count + (i + (i % 10) + index) * 100;
-          var sinHeight = Math.sin(sinSeed / 200) * pathHeight;
+          var sinHeight = Math.sin(sinSeed / 200) * pathHeight * (width / 1920);
           var yPos =
             Math.sin(sinSeed / 100) * sinHeight +
             center.y * (1 + (1 - pathGen[index].height));
@@ -153,13 +145,14 @@ const Canvas = (props) => {
     }
 
     // Reposition the path whenever the window is resized:
-    function onResize(event) {
-      initializePath();
-    }
+    /* function onResize(event) {
+        // Whenever the window is resized, recenter the path:
+        initializePath();
+    } */
 
     // Register the onFrame event handler
     paper.view.on("frame", onFrame);
-    paper.view.on("resize", onResize);
+    /* paper.view.on("resize", onResize); */
 
     // Clean up on component unmount
     return () => {
@@ -168,11 +161,16 @@ const Canvas = (props) => {
       paths.map((path) => {
         path.remove();
       });
-      paper.view.off("resize", onResize);
+      /*  paper.view.off("resize", onResize); */
     };
   }, []);
 
-  return <canvas ref={canvasRef} {...props} id="canvas" resize="true" />;
+  return (
+    <>
+      <canvas ref={canvasRef} {...props} id="canvas" resize="true" />
+      <CanvasOverlay />
+    </>
+  );
 };
 
 export default Canvas;
