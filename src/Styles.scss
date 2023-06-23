@@ -1,0 +1,27 @@
+.section-wrapper {
+  //padding top and bottom: 2rem, padding left and right: 10%
+  padding: 10% 15%;
+  display: flex;
+  font-family: "Akkurat Pro";
+  background-color: #f2f2f2;
+  position: relative;
+  .graphic {
+    flex: 50%;
+    background-size: cover;
+    flex-shrink: 0;
+  }
+
+  .text-wrapper {
+    flex: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5vw;
+    .title {
+    }
+
+    .text {
+    }
+  }
+}

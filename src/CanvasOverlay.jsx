@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./CanvasOverlay.scss";
 import portrait from "./Graphics/volkan_shapes.png";
 
 const NavBar = () => {
+  const [scrollbarAtTop, setScrollbarAtTop] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        setScrollbarAtTop(true);
+      } else {
+        setScrollbarAtTop(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="nav-bar">
+    <nav className={`nav-bar ${scrollbarAtTop ? "transparent" : ""}`}>
       <div className="nav-item">
         <a href="#about-me">About</a>
       </div>

@@ -5,6 +5,20 @@ nav {
   left: 0;
   right: 0;
   flex-direction: row-reverse;
+  background-color: #000000;
+  z-index: 1000;
+  transition: all 0.5s ease-in-out;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  height: 50px;
+  transition: height 0.3s ease-in-out;
+  // center everything
+  align-items: center;
+
+  &.transparent {
+    background-color: transparent;
+    box-shadow: none;
+    height: 100px;
+  }
 
   .nav-item {
     //left and right and top padding of 1rem
