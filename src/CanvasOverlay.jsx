@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./CanvasOverlay.scss";
-import portrait from "./Graphics/volkan_shapes.png";
+import portrait from "./Graphics/volkan.png";
 
 const NavBar = () => {
   const [scrollbarAtTop, setScrollbarAtTop] = useState(true);
@@ -56,7 +56,7 @@ const CanvasOverlay = () => {
               <a href="#my-projects">View my Work</a>
             </button>
             <button className="button-clear">
-              <a href="#contact-me">Get a Free Consultation</a>
+              <a href="#contact-me">Get a Free Quote</a>
             </button>
           </div>
         </div>

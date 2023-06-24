@@ -26,7 +26,7 @@ const Canvas = (props) => {
       // Fills the background with a gradient
       fillColor: {
         gradient: {
-          stops: ["#223380", "#000000"],
+          stops: ["#fbc26d", "#8e1b2e"],
         },
         origin: gradientStart,
         destination: gradientEnd,
@@ -37,8 +37,8 @@ const Canvas = (props) => {
     // values for each path
     const pathGen = [
       {
-        colorStart: "#375894",
-        colorEnd: "#202070",
+        colorStart: "#d3192e",
+        colorEnd: "#22006a",
         opacity: 0.7,
         points: 3,
         height: 1, // 1 is the middle of the screen, 0 is the bottom
@@ -46,8 +46,8 @@ const Canvas = (props) => {
         anchorRight: 0.8, //height of the right anchor point
       },
       {
-        colorStart: "#2A4F85",
-        colorEnd: "#1E2672",
+        colorStart: "#bc1038",
+        colorEnd: "#1e2672",
         opacity: 0.7,
         points: 3,
         height: 0.8,
@@ -55,8 +55,8 @@ const Canvas = (props) => {
         anchorRight: 0.7,
       },
       {
-        colorStart: "#25558D",
-        colorEnd: "#202C81",
+        colorStart: "#a5123f",
+        colorEnd: "#202c81",
         opacity: 0.7,
         points: 3,
         height: 0.6,
@@ -64,8 +64,8 @@ const Canvas = (props) => {
         anchorRight: 0.6,
       },
       {
-        colorStart: "#1F2758",
-        colorEnd: "#1F1F47",
+        colorStart: "#83173e",
+        colorEnd: "#000050",
         opacity: 0.7,
         points: 3,
         height: 0.4,

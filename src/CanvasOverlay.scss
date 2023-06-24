@@ -78,48 +78,66 @@ nav {
       justify-content: space-between;
       align-items: center;
       padding-top: 10px;
-      button,
-      button > a {
-        all: unset;
-        font-family: "Akkurat Pro";
+
+      button {
+        flex-grow: 1;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
         cursor: pointer;
-        color: white;
-        text-decoration: none;
-        font-size: 25px;
-        padding: 0.7rem;
-        border-radius: 1.5rem;
-      }
-      .button-orange {
-        background: white;
-        border-color: #ffffff;
-        transition: all 0.2s ease-in-out;
+        height: 55px;
+        text-align: center;
+        border: none;
+        background-size: 300% 100%;
+
+        border-radius: 50px;
+        -o-transition: all 0.4s ease-in-out;
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+
+        &:hover {
+          background-position: 100% 0;
+          -o-transition: all 0.4s ease-in-out;
+          -webkit-transition: all 0.4s ease-in-out;
+          transition: all 0.4s ease-in-out;
+        }
+
+        &:focus {
+          outline: none;
+        }
 
         a {
-          color: black;
+          text-decoration: none;
+          color: white;
         }
 
-        &:hover {
-          background: orange;
-          border-color: #ffb14a;
-
-          a {
-            color: white; /* Change the text color on hover to ensure visibility */
-          }
+        &.button-orange {
+          background-image: linear-gradient(
+            to right,
+            #f5ce62,
+            #e43603,
+            #fa7199,
+            #e85a19
+          );
+          box-shadow: 0 4px 15px 0 rgba(83, 83, 83, 0.75);
+          margin-right: 10px;
         }
-      }
 
-      .button-clear {
-        //no background color
-        background-color: transparent;
-        transition: all 0.2s ease-in-out;
-        border: 1px solid white;
-
-        &:hover {
-          background: rgb(0, 0, 0);
-          border-color: black;
+        &.button-clear {
+          background-color: transparent;
+          border: 1px solid white;
+          margin-left: 10px;
+          background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.027),
+            rgba(0, 0, 0, 0.034),
+            rgba(194, 194, 194, 0.637),
+            rgba(0, 0, 0, 0.062)
+          );
+          box-shadow: 0 4px 15px 0 rgba(83, 83, 83, 0.75);
 
           a {
-            color: white; /* Change the text color on hover to ensure visibility */
+            color: rgb(255, 255, 255);
           }
         }
       }
@@ -127,9 +145,7 @@ nav {
   }
 
   .portrait {
-    width: 30rem;
     height: 38rem;
-    flex-shrink: 0;
     pointer-events: none;
 
     img {
