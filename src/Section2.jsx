@@ -1,4 +1,4 @@
-import wand from "./Graphics/Asset 1.svg";
+/* import wand from "./Graphics/Asset 1.svg";
 import handshake from "./Graphics/Asset 3.svg";
 import shopping from "./Graphics/Asset 4.svg";
 
@@ -43,3 +43,4 @@ const Section2 = () => {
 };
 
 export default Section2;
+ */

@@ -39,7 +39,7 @@ const NavBar = () => {
 const CanvasOverlay = () => {
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <div className="canvas-overlay">
         <div className="intro-text">
           <div className="text-section">
@@ -53,10 +53,10 @@ const CanvasOverlay = () => {
           </div>
           <div className="button-section">
             <button className="button-orange">
-              <a href="#my-projects">View my Work</a>
+              <a href="#my-projects">View my work</a>
             </button>
             <button className="button-clear">
-              <a href="#contact-me">Get a Free Quote</a>
+              <a href="#contact-me">Get in touch</a>
             </button>
           </div>
         </div>

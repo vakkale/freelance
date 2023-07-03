@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: "Akkurat Pro";
+  font-family: "Inter Regular";
 }
 
 @font-face {
@@ -8,200 +8,174 @@
   src: url("./Fonts/akkuratpro-regular-webfont.ttf");
 }
 
+@font-face {
+  font-family: "Inter Regular";
+  src: url("./Fonts/Inter-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Inter Light";
+  src: url("./Fonts/Inter-Light.ttf");
+}
+
+@font-face {
+  font-family: "Inter Medium";
+  src: url("./Fonts/Inter-Medium.ttf");
+}
+
+@font-face {
+  font-family: "ITC Avant Garde";
+  src: url("./Fonts/ITCAvantGardePro-Md.ttf");
+}
+
 .section-wrapper {
-  padding: 7% 0;
-  font-family: "Akkurat Pro";
-  background-color: #f2f2f2;
-  position: relative;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
   flex-wrap: wrap;
+  background-color: #fff9fc;
+  padding-top: 100px;
 
-  .section {
-    display: flex;
+  --title-font-size: 44px;
+  --subtitle-font-size: 20px;
+  --sm-card-title-font-size: 20px;
+  --lg-card-title-font-size: 22px;
+  --white-card-title-font-size: 25px;
+  --white-card-subtitle-font-size: 17px;
+  --card-content-font-size: 18px;
+  --card-large-text-font-size: 80px;
+
+  //TODO: make these real values
+  @media screen and (max-width: 768px) {
+    --title-font-size: 30px;
+    --subtitle-font-size: 16px;
+    --sm-card-title-font-size: 16px;
+    --lg-card-title-font-size: 18px;
+    --white-card-title-font-size: 20px;
+    --white-card-subtitle-font-size: 14px;
+    --card-content-font-size: 14px;
+    --card-large-text-font-size: 60px;
+  }
+
+  @media screen and (max-width: 480px) {
+    --title-font-size: 30px;
+    --subtitle-font-size: 16px;
+    --sm-card-title-font-size: 16px;
+    --lg-card-title-font-size: 18px;
+    --white-card-title-font-size: 20px;
+    --white-card-subtitle-font-size: 14px;
+    --card-content-font-size: 14px;
+    --card-large-text-font-size: 60px;
+  }
+
+  * {
     flex: 100%;
-    padding: 0 15%;
-    padding-top: 10%;
+    max-width: 1200px;
+  }
 
-    &:first-child {
-      padding-top: 0;
+  .sm-card {
+    flex: 50%;
+  }
+
+  .title {
+    font-family: "ITC Avant Garde";
+    font-size: var(--title-font-size);
+    color: #11385b;
+    margin: 0 20px 30px 20px;
+  }
+
+  .subtitle {
+    font-family: "Inter Light";
+    font-size: var(--subtitle-font-size);
+    color: #6a7b8a;
+    max-width: 800px;
+    margin: 0 20px 33px 20px;
+  }
+
+  .lg-card {
+    height: 580px;
+    position: relative;
+    margin: 33px 0;
+    background-image: linear-gradient(135deg, #ff004dbf 0%, #ff8a48e3 60%);
+  }
+
+  .lg-card,
+  .sm-card {
+    border-radius: 25px;
+    padding: 50px;
+    box-shadow: 0 10px 23px rgba(79, 111, 174, 0.1);
+    @media screen and (max-width: 1200px) {
+      border-radius: 0;
+    }
+  }
+
+  .card-1 {
+    .lg-1-text-1 {
+      font-family: "Inter Light";
+      font-size: var(--title-font-size);
+      color: #FFF9FC;
+      margin: 105px 0 0 5px;
+      position: absolute;
+      max-width: 473px;
+      letter-spacing: -2.5%;
     }
 
-    &.bg-left {
-      padding-top: 0rem;
-      padding-bottom: 5rem;
-      margin-top: 10%;
-      background-image: linear-gradient(
-        135deg,
-        hsl(36deg 95% 71%) 0%,
-        hsl(19deg 57% 53%) 50%,
-        hsl(350deg 68% 33%) 100%
-      );
+    .lg-1-text-2 {
+      font-family: "Inter Medium";
+      font-size: var(--card-large-text-font-size);
+      color: #FFF9FC;
+      margin: 0 0 20px 0;
+      position: absolute;
+      bottom: 0;
+      right: 0;
 
-      .title {
-        color: rgb(255, 255, 255);
-        padding: 5vw 0;
-        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      --intitial-bottom-margin: 87px;
+      --initial-right-margin: 77px;
+
+      margin-bottom: 87px;
+      margin-right: 77px;
+      &:nth-child(2) {
+        margin-bottom: calc(87px + 44px + 23px);
+        margin-right: 168px;
+      }
+      &:nth-child(3) {
+        margin-bottom: calc(87px + 44px + 23px + 44px + 23px);
+        margin-right: 307px;
       }
     }
 
-    &.col {
-      flex-direction: column;
-      // center everything
-      justify-content: center;
-      align-items: center;
-    }
-
-    .title {
-      // center everything
-      flex: 100%;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      display: flex;
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-
-    .cards-wrapper {
-      flex: 100%;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
       width: 100%;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-
-      .card {
-        padding: 10px 20px;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-        max-width: 20vw;
-        color: rgb(236, 236, 236);
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-
-        /* border: 1px solid #000000; */
-        border-radius: 30px;
-
-        background-image: linear-gradient(
-          135deg,
-          rgba(104, 104, 104, 0.637),
-          rgba(32, 32, 32, .7) 15%,
-          rgba(104, 104, 104, 0.637) 50%,
-          rgba(32, 32, 32, .7) 75%
-        );
-        background-size: 100% 300%;
-        transition: all 0.4s ease-in-out;
-
-        &:hover, &:focus {
-          background-position: 100% 100%;
-          transition: all 0.4s ease-in-out;
-          box-shadow: 0 5px 25px rgb(0, 0, 0);
-        }
-
-        @media screen and (max-width: 768px) {
-          max-width: 100%;
-          margin-bottom: 20px;
-        }
-
-        .card-image {
-          max-height: 150px;
-          max-width: 190px;
-          width: fit-content;
-          height: fit-content;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 10px;
-          flex: 100%;
-
-          img {
-            width: 100%;
-            height: 100%;
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
-          }
-        }
-
-        .card-title {
-          word-wrap: break-word;
-          //all caps
-          text-transform: uppercase;
-        }
-
-        .card-text {
-          word-wrap: break-word;
-        }
-      }
+      height: 100%;
+      --line-start: 45%;
+      // huge
+      background: linear-gradient(
+        135deg,
+        #00000000 calc(var(--line-start) - 2px),
+        #fff9fc var(--line-start),
+        #00000000 calc(var(--line-start) + 2px)
+      );
     }
 
-    .graphic {
-      flex: 50%;
-      flex-shrink: 0;
-      display: flex;
-
-      img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-      }
-    }
-
-    .text-wrapper {
-      flex: 50%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 0 5vw;
-      .title {
-      }
-
-      .text {
-      }
-    }
-
-    &.recent-project {
-      flex-wrap: wrap;
-      padding-top: 7%;
-      .graphic {
-        flex: 100%;
-      }
-    }
-  }
-}
-
-.title {
-  font-size: 36px;
-  font-weight: 400;
-  line-height: 54px;
-  word-wrap: break-word;
-}
-
-.row > a {
-  display: flex;
-  text-decoration: none;
-  color: rgb(255, 136, 0);
-  transition: all 0.4s ease-in-out;
-
-  &:hover {
-    color: rgb(255, 72, 0);
-  }
-
-  span {
-    display: flex;
-    align-items: center;
-    height: 100%;
-
-    &:last-child {
-      margin-left: 10px;
-
-      img {
-        height: 100%;
-        width: 100%;
-        max-height: 1em;
-      }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 489px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      border-radius: 25px;
+      background: url("./Graphics/lotus.svg");
     }
   }
 }
