@@ -2,6 +2,7 @@ import "./Styles.scss";
 import LargeCard1 from "./LargeCard1";
 import SmallCard1 from "./SmallCard1";
 import LargeCard2 from "./LargeCard2";
+import LargeCard3 from "./LargeCard3";
 
 const Sections = () => {
   const title1 = "Stunning modern websites made just for you";
@@ -23,6 +24,7 @@ const Sections = () => {
       <LargeCard1 />
       <SmallCard1 />
       <LargeCard2 />
+      <LargeCard3 />
     </div>
   );
 };

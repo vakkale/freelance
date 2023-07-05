@@ -37,6 +37,7 @@
   flex-wrap: wrap;
   background-color: #fff9fc;
   padding-top: 100px;
+  overflow-x: hidden;
 
   --card-content-color: #7483a0;
   --card-title-color: #ffffff;
@@ -314,7 +315,7 @@
           //for loop
           @for $i from 1 through 10 {
             &:nth-child(#{$i}) {
-              left: calc(random() * 100%);
+              left: calc(random() * 85%);
               /* animation-delay: calc(random() * 10s);
               animation-duration: calc(4s + (random() * 1s)); */
 
@@ -349,6 +350,21 @@
         margin-right: -50vw;
         padding: 0 100%;
       }
+    }
+  }
+
+  .card-5 {
+    background: #01294f;
+    --card-content-color: #d2efff;
+    --card-title-color: #d2efff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px;
+
+    & > * {
+      flex: 50%;
     }
   }
 }
@@ -402,7 +418,10 @@
     transform: translateY(0px);
     opacity: 0;
   }
-  40% {
+  45% {
+    opacity: 0.8;
+  }
+  60% {
     opacity: 1;
   }
   100% {
