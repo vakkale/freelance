@@ -1,4 +1,4 @@
-const Section1 = () => {
+const LargeCard1 = () => {
   return (
     <div className="lg-card card-1">
       <div className="lg-1-text-1">
@@ -11,4 +11,4 @@ const Section1 = () => {
   );
 };
 
-export default Section1;
+export default LargeCard1;

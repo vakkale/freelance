@@ -1,7 +1,7 @@
 import "./Styles.scss";
-import Section1 from "./Section1";
+import LargeCard1 from "./LargeCard1";
 import SmallCard1 from "./SmallCard1";
-import Section3 from "./Section3";
+import LargeCard2 from "./LargeCard2";
 
 const Sections = () => {
   const title1 = "Stunning modern websites made just for you";
@@ -20,8 +20,9 @@ const Sections = () => {
   return (
     <div className="section-wrapper">
       <Title title={title1} subtitle={subtitle1} />
-      <Section1 />
+      <LargeCard1 />
       <SmallCard1 />
+      <LargeCard2 />
     </div>
   );
 };

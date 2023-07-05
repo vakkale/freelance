@@ -59,7 +59,7 @@
     --title-font-size: 30px;
     --subtitle-font-size: 16px;
     /* --sm-card-title-font-size: 16px; */
-    --lg-card-title-font-size: 18px;
+    /* --lg-card-title-font-size: 18px; */
     --white-card-title-font-size: 20px;
     --white-card-subtitle-font-size: 14px;
     /* --card-content-font-size: 14px; */
@@ -97,7 +97,6 @@
   .lg-card {
     height: 580px;
     position: relative;
-    background-image: linear-gradient(135deg, #ff004dbf 0%, #ff8a48e3 60%);
     @media screen and (max-width: 1200px) {
       border-radius: 0;
     }
@@ -135,6 +134,7 @@
   }
 
   .card-1 {
+    background-image: linear-gradient(135deg, #ff004dbf 0%, #ff8a48e3 60%);
     .lg-1-text-1 {
       font-family: "Inter Light";
       font-size: var(--title-font-size);
@@ -231,6 +231,126 @@
     --card-title-color: #ff6359;
     border: #dfe5f3 1px solid;
   }
+
+  .card-4 {
+    background: linear-gradient(
+      120deg,
+      rgba(66, 3, 247, 0.8784) 15%,
+      rgba(255, 87, 87, 0.69)
+    );
+    --card-content-color: #ffffff;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    .text-area {
+      max-width: 476px;
+      position: absolute;
+      bottom: 100px;
+      left: 60px;
+      z-index: 99;
+
+      .card-text {
+        margin-top: 25px;
+      }
+
+      @media screen and (max-width: 1050px) {
+        max-width: 100%;
+        top: 40px;
+        left: 50px;
+        right: 50px;
+      }
+
+      @media screen and (max-width: 768px) {
+        max-width: 100%;
+        top: 30px;
+        left: 30px;
+        right: 30px;
+      }
+
+      @media screen and (max-width: 460px) {
+        .card-text {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .droplets-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      transform: rotate(12deg);
+      margin: 0;
+
+      .drop-zone {
+        position: absolute;
+        height: 804px;
+        width: 514px;
+        top: -223px;
+        right: -62px;
+
+        .drop {
+          width: 60px;
+          height: 60px;
+          margin: 0;
+          position: absolute;
+          top: 0;
+          animation: drop 4s ease-in-out infinite;
+
+          background-color: #d0d7dd;
+          opacity: 0.8;
+          border-radius: 50%;
+
+          //center child
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-size: cover;
+
+          img {
+            animation: drop-img 4s ease-in-out infinite;
+          }
+
+          //for loop
+          @for $i from 1 through 10 {
+            &:nth-child(#{$i}) {
+              left: calc(random() * 100%);
+              /* animation-delay: calc(random() * 10s);
+              animation-duration: calc(4s + (random() * 1s)); */
+
+              animation-delay: $i * 0.5s;
+              animation-duration: 4s + ($i * 0.2s);
+
+              img {
+                animation-delay: $i * 0.5s;
+                animation-duration: 4s + ($i * 0.2s);
+              }
+            }
+          }
+        }
+      }
+
+      .mask-line {
+        z-index: 10;
+        top: calc(50% - 300px);
+        height: 300px;
+        border-radius: 3px;
+        border-bottom: 4px solid white;
+        background: linear-gradient(
+          180deg,
+          hsla(0, 0%, 100%, 0),
+          hsla(0, 0%, 100%, 0.14) 47.92%,
+          hsla(0, 0%, 100%, 0.24)
+        );
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -100%;
+        margin-right: -50vw;
+        padding: 0 100%;
+      }
+    }
+  }
 }
 
 .card-header {
@@ -251,6 +371,12 @@
     padding-left: 15px;
     color: var(--card-title-color);
   }
+
+  &.header-large {
+    .card-title {
+      font-size: var(--lg-card-title-font-size);
+    }
+  }
 }
 
 .card-text {
@@ -269,4 +395,32 @@
   height: 100%;
   flex-shrink: 1;
   margin-top: 30px;
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(0px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(893px);
+  }
+}
+
+@keyframes drop-img {
+  0% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
