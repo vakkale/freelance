@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import "./CanvasOverlay.scss";
 import portrait from "./Graphics/volkan.png";
 
