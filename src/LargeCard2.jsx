@@ -7,7 +7,7 @@ function Droplets() {
   return (
     <div className="droplets-container">
       <div className="drop-zone">
-        {[...Array(10)].map((item, index) => {
+        {[...Array(15)].map((item, index) => {
           return (
             <div className={`drop drop-${index + 1}`}>
               <img
