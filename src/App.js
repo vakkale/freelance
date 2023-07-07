@@ -7,6 +7,7 @@ function App() {
     <div className="App">
       <Canvas />
       <Sections />
+      <footer>Copyright © 2023 volkanakkale.com</footer>
     </div>
   );
 }

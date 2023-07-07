@@ -5,6 +5,7 @@ import LargeCard2 from "./LargeCard2";
 import LargeCard3 from "./LargeCard3";
 import FeaturedProject from "./FeaturedProjects";
 import SmallCard2 from "./SmallCard2";
+import LargeCard4 from "./LargeCard4";
 import externallink from "./Graphics/externallink.svg";
 
 const Sections = () => {
@@ -13,6 +14,10 @@ const Sections = () => {
     "Unlock your online potential with a captivating, modern website tailored to your unique vision. Experience the perfect blend of vibrant design and seamless functionality that sets your brand apart.";
 
   const title2 = "Check out my most recent project";
+
+  const title3 = "Ready to take the next step?";
+  const subtitle3 =
+    "Complete the form below and let's start turning your ideas into reality. I'm excited to hear from you and discuss how I can help you achieve your goals.";
 
   const Title2 = () => {
     return (
@@ -53,6 +58,8 @@ const Sections = () => {
       <Title2 />
       <FeaturedProject />
       <SmallCard2 />
+      <Title title={title3} subtitle={subtitle3} />
+      <LargeCard4 />
     </div>
   );
 };
