@@ -4,6 +4,7 @@ import SmallCard1 from "./SmallCard1";
 import LargeCard2 from "./LargeCard2";
 import LargeCard3 from "./LargeCard3";
 import FeaturedProject from "./FeaturedProjects";
+import SmallCard2 from "./SmallCard2";
 import externallink from "./Graphics/externallink.svg";
 
 const Sections = () => {
@@ -19,7 +20,7 @@ const Sections = () => {
         <div className="title">{title2}</div>
         <div className="subtitle">
           Created for{" "}
-          <a href="https://www.vtclubxctf.org">
+          <a href="https://www.vtclubxctf.org" target="_blank" rel="noreferrer">
             <span>Virginia Tech’s Club Cross Country/Track & Field</span>
             <span>
               <img src={externallink} alt="" />
@@ -51,6 +52,7 @@ const Sections = () => {
       <LargeCard3 />
       <Title2 />
       <FeaturedProject />
+      <SmallCard2 />
     </div>
   );
 };
