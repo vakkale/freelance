@@ -460,6 +460,7 @@
     align-items: center;
     justify-content: center;
     margin: 0 20px;
+    margin-bottom: 33px;
     .testimonial-name {
       font-family: "ITC Avant Garde";
       font-size: var(--title-font-size);
@@ -472,8 +473,11 @@
       font-size: 16px;
       color: #6a7b8a;
       margin: 0 0 15px;
+    }
 
-      @media screen and (max-width: 740px) {
+    @media screen and (max-width: 740px) {
+      margin-bottom: 0;
+      .testimonial-title {
         font-size: 14px;
       }
     }
@@ -521,6 +525,10 @@
   .card-6,
   .card-7 {
     border: rgba(223, 229, 243, 1) 1px solid;
+
+    @media screen and (max-width: 950px) {
+      box-shadow: none;
+    }
   }
 }
 
@@ -624,10 +632,8 @@
 
     &.rocket {
       max-height: 288px;
-      height: 100%;
-      width: 100%;
       img {
-        max-height: 100%;
+        max-height: 288px;
         max-width: 100%;
         object-fit: contain;
       }
