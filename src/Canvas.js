@@ -11,7 +11,7 @@ const Canvas = (props) => {
 
     const view = paper.view;
     const viewSize = paper.view.size; // Get the size of the viewport
-    const mobileViewHeight = window.innerHeight; // Get the size of the viewport
+    const mobileViewHeight = window.outerHeight; // Get the size of the viewport
 
     if (window.innerWidth < 768) {
       viewSize.height = mobileViewHeight;
