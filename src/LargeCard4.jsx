@@ -11,25 +11,18 @@ const LargeCard4 = () => {
           </span>
           <span className="card-title form-title">Reach out to me today!</span>
         </div>
-        <form name="contact" method="POST" data-netlify="true">
+        <form name="contact" method="POST" netlify>
           <p>
-            <input
-              type="text"
-              name="form-first-name"
-              placeholder="First Name"
-            />
+            <input type="text" name="first-name" placeholder="First Name" />
           </p>
           <p>
-            <input type="text" name="form-last-name" placeholder="Last Name" />
+            <input type="text" name="last-name" placeholder="Last Name" />
           </p>
           <p>
-            <input type="email" name="form-email" placeholder="Email" />
+            <input type="email" name="email" placeholder="Email" />
           </p>
           <p>
-            <textarea
-              name="form-message"
-              placeholder="Describe your project..."
-            />
+            <textarea name="message" placeholder="Describe your project..." />
           </p>
           <p>
             <button type="submit" className="form-button">
