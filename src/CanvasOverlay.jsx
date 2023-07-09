@@ -2,7 +2,6 @@ import "./CanvasOverlay.scss";
 import portrait from "./Graphics/volkan.png";
 
 const CanvasOverlay = () => {
-  function handleClick({ link }) {}
 
   return (
     <>
