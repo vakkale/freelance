@@ -12,6 +12,7 @@ const LargeCard4 = () => {
           <span className="card-title form-title">Reach out to me today!</span>
         </div>
         <form name="contact" method="POST" netlify>
+          <input type="hidden" name="form-name" value="contact" />
           <p>
             <input type="text" name="first-name" placeholder="First Name" />
           </p>
