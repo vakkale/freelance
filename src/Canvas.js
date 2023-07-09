@@ -11,11 +11,6 @@ const Canvas = (props) => {
 
     const view = paper.view;
     const viewSize = paper.view.size; // Get the size of the viewport
-    const mobileViewHeight = window.outerHeight; // Get the size of the viewport
-
-    if (window.innerWidth < 768) {
-      viewSize.height = mobileViewHeight;
-    }
 
     const topLeft = new paper.Point(0, 0); // Top-left corner of the viewport
     const bottomRight = new paper.Point(viewSize.width, viewSize.height); // Bottom-right corner of the viewport
