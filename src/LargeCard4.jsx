@@ -14,16 +14,30 @@ const LargeCard4 = () => {
         <form name="contact" method="POST" netlify>
           <input type="hidden" name="form-name" value="contact" />
           <p>
-            <input type="text" name="first-name" placeholder="First Name" />
+            <input
+              type="text"
+              name="first-name"
+              placeholder="First Name"
+              required
+            />
           </p>
           <p>
-            <input type="text" name="last-name" placeholder="Last Name" />
+            <input
+              type="text"
+              name="last-name"
+              placeholder="Last Name"
+              required
+            />
           </p>
           <p>
-            <input type="email" name="email" placeholder="Email" />
+            <input type="email" name="email" placeholder="Email" required />
           </p>
           <p>
-            <textarea name="message" placeholder="Describe your project..." />
+            <textarea
+              name="message"
+              placeholder="Describe your project..."
+              required
+            />
           </p>
           <p>
             <button type="submit" className="form-button">

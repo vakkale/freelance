@@ -4,13 +4,13 @@ import { useRef } from "react";
 
 const text = `{
     "search_terms": {
-        "program_id": "prg_2eRPsDnL66rZ7H",
-        "name": "Aleksey Potemkin",
-        "date_of_birth": "1990-05-29",
-        "document": "C31195855",
+        "product_id": "prid_7HeuV9sJ24",
+        "name": "Valued Customer",
+        "date_of_birth": "1990-01-01",
+        "document": "F299932",
         "location": "US"
       },
-      "assignee": "usr_1SUuwqBdK75GKi",
+      "user": "usr_9063hsd2GhK284",
      "customer_reference": "your-db-id-3b24110"
 }`;
 

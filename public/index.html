@@ -31,10 +31,10 @@
     <div id="root"></div>
     <!-- A little help for the Netlify post-processing bots -->
     <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-      <input type="text" name="first-name" />
-      <input type="text" name="last-name" />
-      <input type="email" name="email" />
-      <textarea name="message"></textarea>
+      <input type="text" name="first-name" required/>
+      <input type="text" name="last-name" required/>
+      <input type="email" name="email" required/>
+      <textarea name="message" required></textarea>
     </form>
   </body>
 </html>
