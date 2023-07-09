@@ -22,7 +22,9 @@ const Sections = () => {
   const Title2 = () => {
     return (
       <>
-        <div className="title">{title2}</div>
+        <div className="title" id="my-projects">
+          {title2}
+        </div>
         <div className="subtitle">
           Created for{" "}
           <a href="https://www.vtclubxctf.org" target="_blank" rel="noreferrer">
@@ -39,10 +41,12 @@ const Sections = () => {
     );
   };
 
-  const Title = ({ title, subtitle }) => {
+  const Title = ({ title, subtitle, title_id }) => {
     return (
       <>
-        <div className="title">{title}</div>
+        <div className="title" id={`${title_id ? title_id : ""}`}>
+          {title}
+        </div>
         <div className="subtitle">{subtitle}</div>
       </>
     );
@@ -58,7 +62,7 @@ const Sections = () => {
       <Title2 />
       <FeaturedProject />
       <SmallCard2 />
-      <Title title={title3} subtitle={subtitle3} />
+      <Title title={title3} subtitle={subtitle3} title_id="contact-me" />
       <LargeCard4 />
     </div>
   );
