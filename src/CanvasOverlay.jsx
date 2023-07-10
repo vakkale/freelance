@@ -5,7 +5,7 @@ const CanvasOverlay = () => {
 
   return (
     <>
-      <div className="canvas-overlay">
+      <div className="canvas-overlay" id="canvas-overlay">
         <div className="intro-text">
           <div className="text-section">
             <span>👋</span>

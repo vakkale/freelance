@@ -9,6 +9,9 @@ const Canvas = (props) => {
     const canvas = canvasRef.current;
     paper.setup(canvas);
 
+    // Check if width less than 768px
+    const isMobile = window.innerWidth < 768;
+
     const view = paper.view;
     const viewSize = paper.view.size; // Get the size of the viewport
 
@@ -74,7 +77,6 @@ const Canvas = (props) => {
       },
     ];
 
-    // Path 1. The tallest one
     var center, width, height;
     var pathHeight = 30;
     initializePath();
@@ -94,10 +96,15 @@ const Canvas = (props) => {
         let topRight = new paper.Point(width, (height / 2) * anchorRight);
         let bottomRight = new paper.Point(width, height);
 
+        if (isMobile) {
+          topLeft = topLeft.subtract(new paper.Point(0, 300 - index * 50));
+          topRight = topRight.subtract(new paper.Point(0, 100 - index * 50));
+        }
+
         p.segments = [];
         p.add(bottomLeft, topLeft);
-        for (var i = 1; i < path.points; i++) {
-          var point = new paper.Point((width / path.points) * i, center.y);
+        for (let i = 1; i < (isMobile ? path.points + 2 : path.points); i++) {
+          let point = new paper.Point((width / path.points) * i, center.y);
           p.add(point);
           //p.segments[i + 1].smooth({ type: "catmull-rom" });
         }
@@ -131,16 +138,30 @@ const Canvas = (props) => {
 
     function onFrame(event) {
       paths.map((path, index) => {
-        pathHeight -= (center.y * 0.3 + pathHeight) / 10;
-        for (var i = 2; i < pathGen[index].points + 1; i++) {
-          var sinSeed = event.count + (i + (i % 10) + index) * 100;
-          var sinHeight = Math.sin(sinSeed / 200) * pathHeight * (width / 1920);
-          var yPos =
-            Math.sin(sinSeed / 100) * sinHeight +
-            center.y * (1 + (1 - pathGen[index].height));
-          path.segments[i].point.y = yPos;
+        if (!isMobile) {
+          pathHeight -= (center.y * 0.3 + pathHeight) / 10;
+          for (let i = 2; i < pathGen[index].points + 1; i++) {
+            let sinSeed = event.count + (i + (i % 10) + index) * 100;
+            let sinHeight =
+              Math.sin(sinSeed / 200) * pathHeight * (width / 1920);
+            let yPos =
+              Math.sin(sinSeed / 100) * sinHeight +
+              center.y * (1 + (1 - pathGen[index].height));
+            path.segments[i].point.y = yPos;
+          }
+          return null; // added return statement
+        } else {
+          pathHeight -= (center.y * 2 + pathHeight) / 10;
+          for (let i = 2; i < pathGen[index].points + 4; i++) {
+            let sinSeed = event.count * 5 + (i + (i % 10) + index) * 100;
+            let sinHeight = Math.sin(sinSeed / 200) * 10;
+            let yPos =
+              Math.sin(sinSeed / 100) * sinHeight +
+              center.y * (1 + (1 - pathGen[index].height));
+            path.segments[i].point.y = yPos - 200 + index * 50 + i * 50;
+          }
+          return null; // added return statement
         }
-        return null; // added return statement
       });
     }
 

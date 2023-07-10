@@ -62,7 +62,7 @@ const Sections = () => {
       <Title2 />
       <FeaturedProject />
       <SmallCard2 />
-      <Title title={title3} subtitle={subtitle3} title_id="contact-me" />
+      <Title title={title3} subtitle={subtitle3}/>
       <LargeCard4 />
     </div>
   );
